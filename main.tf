@@ -1,16 +1,16 @@
 #this file consists of code for instances and sg
 provider "aws" {
-region = "ap-south-1"
-access_key = "AKIARSPNELGYCJEVYJ4K"
-secret_key = "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"
+region = "ap-northeast-1"
+access_key = "AKIA5KJL4GTN2YRONJPM"
+secret_key = "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"
 }
 
 resource "aws_instance" "one" {
-  ami             = "ami-0d81306eddc614a45"
+  ami             = "ami-030cf0a1edb8636ab"
   instance_type   = "t2.micro"
-  key_name        = "rmk8s"
+  key_name        = "sk"
   vpc_security_group_ids = [aws_security_group.three.id]
-  availability_zone = "ap-south-1a"
+  availability_zone = "ap-northeast-1c"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -25,11 +25,11 @@ EOF
 }
 
 resource "aws_instance" "two" {
-  ami             = "ami-0d81306eddc614a45"
+  ami             = "ami-030cf0a1edb8636ab"
   instance_type   = "t2.micro"
-  key_name        = "rmk8s"
+  key_name        = "sk"
   vpc_security_group_ids = [aws_security_group.three.id]
-  availability_zone = "ap-south-1b"
+  availability_zone = "ap-northeast-1c"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -76,7 +76,7 @@ name = "rahamuser11"
 }
 
 resource "aws_ebs_volume" "six" {
- availability_zone = "ap-south-1b"
+ availability_zone = "ap-northeast-1c"
   size = 40
   tags = {
     Name = "ebs-001"
